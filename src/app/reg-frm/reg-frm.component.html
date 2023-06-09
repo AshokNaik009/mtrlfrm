@@ -1,38 +1,150 @@
 <mat-toolbar>
-    <span>My Application</span>
+    <span>Application Registration</span>
 </mat-toolbar>
 
 <mat-card class="centerDiv" >
 
-    <form class="example-container" >
+   
 
-        
-        <mat-form-field class="form-group formElement" >
-          <input  matInput  class="form-control" type="text" placeholder="Applicant Number" >
-        </mat-form-field>
 
-        <mat-form-field class="form-group formElement" >
-                    <input matInput [matDatepicker]="picker" placeholder="Applicant Date" >
+      <form class="formwidth"  [formGroup]="applicationFrm" >
+        <table class="fullwidth" cellspacing="0">
+            <tr>
+                <td>
+                  <mat-form-field class="form-group formElement" >
+                    <input  readonly  formControlName="appId"     matInput  class="form-control" type="text" placeholder="Applicant Number" >
+
+
+                    <div *ngIf="applicationFrm.controls['appId'].hasError('required') && applicationFrm.controls['appId'].touched" class="alert alert-danger">Application ID Cannot Be Empty</div>
+
+
+
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="form-group formElement" >
+                    <input formControlName="appDate"   matInput [matDatepicker]="picker" placeholder="Applicant Date" >
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-              
-
-
-        <mat-form-field class="form-group formElement"  [style.width.rem]=96 >
-            <input  matInput  class="form-control" type="text" placeholder="Applicant Name" >
-            <!-- <div *ngIf="complexForm.controls['email'].hasError('required') && complexForm.controls['email'].touched" class="alert alert-danger">Email Id Field Cannot be Empty</div> -->
-           
-        </mat-form-field>
-
-
-
+                 
+                    <div *ngIf="applicationFrm.controls['appDate'].hasError('required') && applicationFrm.controls['appDate'].touched" class="alert alert-danger">Application Date Cannot Be Empty</div>
+                 
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="form-group formElement"  [style.width.rem]=46 >
+                    <input  formControlName="appName"   matInput  class="form-control" type="text" placeholder="Applicant Name" >
+                 
+                 
+                    <div *ngIf="applicationFrm.controls['appName'].hasError('required') && applicationFrm.controls['appName'].touched" class="alert alert-danger">Application Name Cannot Be Empty</div>
+                 
+                  </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <p>
+          <mat-form-field class="form-group formElement"  [style.width.rem]=76 >
+            <input formControlName="appRole"  matInput  class="form-control" type="text" placeholder="Applied For" >
+            
+            <div *ngIf="applicationFrm.controls['appRole'].hasError('required') && applicationFrm.controls['appRole'].touched" class="alert alert-danger">Application Role Cannot Be Empty</div>
         
-        <div class="form-group" mat-dialog-actions>
-          <button mat-raised-button type="submit" color="primary" >Submit</button>
-          <button mat-raised-button  >Close</button>
-        </div>
-      </form>
+          </mat-form-field>
+        </p>
+        <table class="fullwidth" cellspacing="0">
+            <tr>
+                <td>
+                  <mat-form-field class="form-group formElement" >
+                    <input formControlName="appDOB"   matInput [matDatepicker]="pickern" placeholder="DOB" >
+                    <mat-datepicker-toggle matSuffix [for]="pickern"></mat-datepicker-toggle>
+                    <mat-datepicker #pickern></mat-datepicker>
+                 </mat-form-field>
+                 
+                 <div *ngIf="applicationFrm.controls['appDOB'].hasError('required') && applicationFrm.controls['appDOB'].touched" class="alert alert-danger">Application Date of Birth Cannot Be Empty</div>       
+
+                </td>
+                <td>
+                  <mat-form-field class="form-group formElement" >
+                    <input  formControlName="appAge"     matInput  class="form-control" type="number" placeholder="Age" >
+                  </mat-form-field>
+             
+                  <div *ngIf="applicationFrm.controls['appAge'].hasError('required') && applicationFrm.controls['appAge'].touched" class="alert alert-danger">Application Age Cannot Be Empty</div>
+             
+                </td>
+                <td>
+                  <mat-form-field class="form-group formElement" >
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="appGender" >
+                      <mat-option value="Male">Male</mat-option>
+                      <mat-option value="Female">Female</mat-option>
+                      <mat-option value="Other">Other</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <div *ngIf="applicationFrm.controls['appGender'].hasError('required') && applicationFrm.controls['appGender'].touched" class="alert alert-danger">Application Gender Cannot Be Empty</div>
+
+                </td>
+
+                <td>
+                  <mat-form-field class="form-group formElement" >
+                    <input   formControlName="appMobile"    matInput  class="form-control" type="tel" placeholder="Mobile" >
+                  </mat-form-field>
+                </td>
+
+                <td>
+                  <mat-form-field class="form-group formElement" >
+                    <input  formControlName="appEml"  matInput  class="form-control" type="email" placeholder="Email" >
+                  </mat-form-field>
+                </td>
+
+
+            </tr>
+        </table>
+
+        <p>
+          <mat-form-field class="form-group formElement"  [style.width.rem]=76 >
+            <input formControlName="appRsn"    matInput  class="form-control" type="text" placeholder="Reason of Leave" >
+        
+
+           
+            
+          </mat-form-field>
+        </p>
+
+
+        <table class="fullwidth" cellspacing="0">
+          <tr>
+              <td>
+              
+               <mat-form-field class="form-group formElement" >
+                <input formControlName="appExp"     matInput  class="form-control" type="number" placeholder="Experience In Years" >
+             
+                <div *ngIf="applicationFrm.controls['appExp'].hasError('required') && applicationFrm.controls['appExp'].touched" class="alert alert-danger">Application Experience Cannot Be Empty</div>
+             
+              </mat-form-field>
+               
+              </td>
+              <td>
+                <mat-form-field class="form-group formElement"  [style.width.rem]=50  >
+                  <input  formControlName="appCCmp"  matInput  class="form-control" type="text" placeholder="Current Company" >
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="form-group formElement" >
+                  <input  formControlName="appNP"   matInput  class="form-control" type="text" placeholder="Notice Period" >
+                </mat-form-field>
+              </td>
+
+            
+
+
+          </tr>
+        </table>
+
+        <p>
+          <button style="margin:1rem" (click)="saveFormDetails()"   mat-raised-button color="primary">Save</button>
+          <button style="margin:1rem"  (click)="clearForm()"  mat-raised-button color="accent">Cancel</button>
+        </p>
+    </form>
 
 
 
