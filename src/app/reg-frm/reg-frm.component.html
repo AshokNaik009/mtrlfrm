@@ -1,0 +1,40 @@
+<mat-toolbar>
+    <span>My Application</span>
+</mat-toolbar>
+
+<mat-card class="centerDiv" >
+
+    <form class="example-container" >
+
+        
+        <mat-form-field class="form-group formElement" >
+          <input  matInput  class="form-control" type="text" placeholder="Applicant Number" >
+        </mat-form-field>
+
+        <mat-form-field class="form-group formElement" >
+                    <input matInput [matDatepicker]="picker" placeholder="Applicant Date" >
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+              
+
+
+        <mat-form-field class="form-group formElement"  [style.width.rem]=96 >
+            <input  matInput  class="form-control" type="text" placeholder="Applicant Name" >
+            <!-- <div *ngIf="complexForm.controls['email'].hasError('required') && complexForm.controls['email'].touched" class="alert alert-danger">Email Id Field Cannot be Empty</div> -->
+           
+        </mat-form-field>
+
+
+
+        
+        <div class="form-group" mat-dialog-actions>
+          <button mat-raised-button type="submit" color="primary" >Submit</button>
+          <button mat-raised-button  >Close</button>
+        </div>
+      </form>
+
+
+
+</mat-card>
+

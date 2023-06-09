@@ -1,0 +1,47 @@
+.centerDiv {
+    height: 60%;
+    width: 80%;
+    padding: 40px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 3%;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+.example-container {
+    display: flex;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  .example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+  .mat-raised-button.mat-primary {
+    background-color: #cddc39;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #cddc39 !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #cddc39 !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: #cddc39 !important;;
+}
+
+
+.formElement {
+    margin: 1rem;
+}
