@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { MatTableDataSource,  } from '@angular/material/table';
+import { MatPaginator  } from '@angular/material/paginator';
 
+import { Applicant } from './applicant.model';
 
 @Component({
   selector: 'app-reg-frm',
@@ -13,6 +16,10 @@ export class RegFrmComponent implements OnInit {
 
   applicationFrm!: FormGroup;
 
+  dispalyedColumns = ['name', 'email', 'phone', 'edit', 'delete'];
+  dataSource = new MatTableDataSource<Applicant>();
+  @ViewChild('page1', { read: MatPaginator }) firstDataPaginator!: MatPaginator
+
 
   constructor( private formBuilder: FormBuilder) { }
 
@@ -23,6 +30,26 @@ export class RegFrmComponent implements OnInit {
     this.applicationFrm.patchValue({
       appId: Math.floor(Math.random() * 100)
     })
+
+
+    this.dataSource.data = [
+      {
+      "uid": "1212",
+      "name": "Ashok Naik",
+      "email": "asnb@mail.com",
+      "phone": "8879920190",
+      },
+      {
+        "uid": "1232",
+        "name": "Sachin Naik",
+        "email": "nb@mail.com",
+        "phone": "8879920190",
+        },
+
+  
+  
+  ]
+
   }
 
   
@@ -47,8 +74,12 @@ export class RegFrmComponent implements OnInit {
   }
 
   clearForm() {
-   
       this.applicationFrm.reset();
+  }
+
+  ngAfterViewInit() {
+   // this.dataSource.sort = this.firstDataSort;
+    this.dataSource.paginator = this.firstDataPaginator;
   }
 
 

@@ -9,6 +9,17 @@
     box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
 }
 
+.centerTblDiv {
+  height: 80%;
+  width: 80%;
+  padding: 40px;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 3%;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+}
+
 .example-container {
     display: flex;
     /* flex-direction: row; */
@@ -24,25 +35,36 @@
   }
 
   .mat-raised-button.mat-primary {
-    background-color: #cddc39;
+    background-color: #2b7fa3;
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
-  color: #cddc39 !important;
+  color: #2b7fa3 !important;
  }
 
  ::ng-deep.mat-form-field-underline {
   /*change color of underline*/
-  background-color: #cddc39 !important;
+  background-color: #2b7fa3 !important;
 } 
 
 ::ng-deep.mat-form-field-ripple {
- /*change color of underline when focused*/
- background-color: #cddc39 !important;;
+ /*change color of underline when focused   #2b7fa3  */
+ background-color: #2b7fa3 !important;;
 }
+
+
 
 
 .formElement {
     margin: 1rem;
+}
+
+.searchDiv {
+  width: 50%;
+  border: 1px solid #eee;
+  margin: 0 auto;
+  border-radius: 12px;
+  padding: 0.2rem;
+
 }
